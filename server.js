@@ -8,6 +8,9 @@ const app = express();
 // Import the database connection and the person model
 const db = require("./db.js");
 
+require('dotenv').config();
+const PORT = process.env.PORT || 3000;
+
 // Use body-parser middleware to parse JSON requests
 app.use(bodyparser.json());
 
@@ -22,8 +25,7 @@ app.use('/person',personRoutes);
 const menuItemRoutes = require('./Routes/menuItemRoutes.js');
 app.use('/menuItem',menuItemRoutes);
 
-
 // Start the server and listen on port 3000
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log("Server is running on port on 3000");
 })  
